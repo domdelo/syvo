@@ -18,3 +18,7 @@ class Chat:
     def get_history(self):
         """Return the full list of Message objects."""
         return self.messages
+
+    def message_count(self):
+        """Return the total number of messages stored in the chat."""
+        return len(self.messages)

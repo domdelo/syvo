@@ -18,3 +18,7 @@ class Database:
     def load_chat(self, index):
         """Load a chat by index."""
         return self.stored_chats[index]
+
+    def chat_count(self):
+        """Return the total number of chats stored in the database."""
+        return len(self.stored_chats)
