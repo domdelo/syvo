@@ -4,18 +4,20 @@ ClientConnection Module
 Handles sending messages from the sender to the receiver.
 """
 
+import socket
+
 class ClientConnection:
-    """Manages client-side network communication."""
 
     def __init__(self, ip, port):
-        """Initialize the client connection with IP and port."""
         self.ip = ip
         self.port = port
+        self.client = None
 
     def connect(self):
-        """Establish a connection to the receiver."""
-        pass
+        self.client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        self.client.connect((self.ip, self.port))
+        print("Connected to Syvo server!")
 
     def send(self, msg):
-        """Send a Message object to the receiver."""
-        pass
+        self.client.sendall(str(msg).encode("utf-8"))
+        print("Message sent!")
